@@ -70,6 +70,9 @@
     }
     .hello{
         ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
             @for $i from 1 to 4 {
                 .li-#{$i} {
                     height: 40px;
