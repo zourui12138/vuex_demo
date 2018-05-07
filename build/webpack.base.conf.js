@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 const path = require('path');
 const utils = require('./utils');
 const config = require('../config');
@@ -63,6 +63,10 @@ module.exports = {
                     limit: 10000,
                     name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
                 }
+            },
+            {
+                test: /\.sass$/,
+                loaders: ['style', 'css', 'sass']
             }
         ]
     },
@@ -78,4 +82,4 @@ module.exports = {
         tls: 'empty',
         child_process: 'empty'
     }
-}
+};
