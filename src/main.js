@@ -5,6 +5,9 @@ import router from './router'
 // 引入store
 import store from './store'
 
+import { Button } from 'element-ui';
+Vue.use(Button);
+
 Vue.config.productionTip = false;
 
 new Vue({

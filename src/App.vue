@@ -2,6 +2,8 @@
     <div id="app">
         <img src="./assets/logo.png">
         <h1>{{count}}</h1>
+        <el-button type="primary">主要按钮</el-button>
+        <el-button type="primary" icon="el-icon-edit" circle></el-button>
         <router-view/>
     </div>
 </template>
