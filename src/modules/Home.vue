@@ -14,6 +14,6 @@
     div{
         width: 100px;
         height: 100px;
-        background: url('../assets/logo.png') no-repeat center;
+        background: url('../assets/img/logo.png') no-repeat center;
     }
 </style>

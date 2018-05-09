@@ -59,7 +59,7 @@
 
     // 高级用法之自定义函数
     @function imgUrl($n) {
-        @return '../assets/'+$n;
+        @return '../assets/img/'+$n;
     };
     .class1 {
         height: 60px;

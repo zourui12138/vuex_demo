@@ -1,51 +1,79 @@
 <template>
-    <div id="app">
-        <img src="./assets/logo.png">
-        <h1>{{count}}</h1>
-        <el-button type="primary">主要按钮</el-button>
-        <el-button type="primary" icon="el-icon-edit" circle></el-button>
-        <router-view/>
+    <div id="app" class="clear">
+        <aside class="aside fl">
+            <h1><img src="./assets/img/logo.png" alt="">内部服务平台</h1>
+            <ul>
+                <li class="current"><i class="el-icon-menu"></i>内部平台管理</li>
+                <li><i class="el-icon-menu"></i>内部项目管理</li>
+            </ul>
+        </aside>
+        <section class="section fl">
+            <header class="header"></header>
+            <div class="main"></div>
+        </section>
     </div>
 </template>
 
 <script>
-    import { mapState, mapGetters, mapMutations, mapActions  } from 'vuex'
-
     export default {
         name: 'App',
-        computed: {
-            ...mapState('moduleA',['show','count']),
-            ...mapGetters('moduleA',['doneTodos', 'getTodoById'])
-        },
-        methods: {
-            ...mapMutations('moduleA',['increment', 'increment_']),
-            ...mapActions('moduleA',['actionA', 'actionB'])
-        },
-        mounted() {
-            console.log(this);
-            // 你不能直接调用一个 mutation handler。
-            // 这个选项更像是事件注册：“当触发一个类型为 increment 的 mutation 时，调用此函数”。
-            // 要唤醒一个 mutation handler，你需要以相应的 type 调用 store.commit 方法
-            // 你可以向 store.commit 传入额外的参数，即 mutation 的 载荷（payload）
-            this.increment(10);
-            // 在大多数情况下，载荷应该是一个对象，这样可以包含多个字段并且记录的 mutation 会更易读
-            this.increment_({data: 30});
-            //this.actionA().then(() => {console.log(this.count);});
-            this.actionB().then(() => {console.log(this.count);});
-            console.log(this.show);
-            console.log(this.count);
-            console.log(this.doneTodos);
-            console.log(this.getTodoById(2));
-        }
     }
 </script>
 
 <style lang="scss" scoped>
-    #app {
-        font-family: 'Avenir', Helvetica, Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-align: center;
-        margin-top: 60px;
+    // 全局变量
+    @import "./assets/css/constant";
+    #app{
+        height: $height;
+        .aside{
+            width: 248px;
+            height: $height;
+            background-color: $bgColor;
+            border-right: 2px solid $borderColor;
+            h1{
+                text-align: center;
+                font-size: 24px;
+                font-weight: 400;
+                height: 100px;
+                line-height: 100px;
+                color: $color;
+                img{
+                    margin: 26px 0;
+                }
+            }
+            ul{
+                li{
+                    height: 56px;
+                    line-height: 56px;
+                    padding-left: 36px;
+                    font-size: 18px;
+                    cursor: pointer;
+                    transition: .2s all;
+                    margin-bottom: 2px;
+                    &:hover,&.current{
+                        background-color: $color;
+                        color: #fff;
+                    }
+                    i{
+                        margin-right: 20px;
+                    }
+                }
+            }
+        }
+        .section{
+            width: calc(100% - 250px);
+            height: $height;
+            .header{
+                height: 68px;
+                line-height: 68px;
+                background-color: $bgColor;
+                border-bottom: 2px solid $borderColor;
+
+            }
+            .main{
+                height: calc(100% - 90px);
+                padding: 0 20px 20px;
+            }
+        }
     }
 </style>

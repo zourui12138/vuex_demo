@@ -12,6 +12,8 @@ Vue.directive('scroll', {
     // 当组件完成一次更新时调用 还有其它的钩子函数 自行选择合适的
     componentUpdated:  (el) => {el.scrollTop = 0;}
 });
+// 全局引用css
+import './assets/css/base.scss';
 
 Vue.config.productionTip = false;
 
